@@ -3,62 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Rooted Labs LLC - Building innovative web applications">
-    <title>Rooted Labs LLC</title>
+    <meta name="description" content="Rooted Labs LLC – Full-stack web development and technical consulting. We build scalable, modern applications that grow your business.">
+    <title>Rooted Labs LLC – Web Development & Consulting</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/logo.png">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
+    <header id="site-header">
         <nav class="container">
-            <div class="logo">
+            <a href="#" class="logo" aria-label="Rooted Labs LLC – home">
                 <img src="assets/logo.png" alt="Rooted Labs LLC Logo" id="company-logo">
                 <div class="logo-text">
                     <span class="logo-name">Rooted Labs</span>
                     <span class="logo-llc">LLC</span>
                 </div>
-            </div>
-            <ul class="nav-links">
+            </a>
+            <ul class="nav-links" id="nav-links" role="list">
                 <li><a href="#about">About</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </nav>
     </header>
 
     <main>
         <section id="hero">
-            <div class="container">
-                <h1>Rooted Labs LLC</h1>
-                <p class="tagline">Crafting exceptional digital experiences that grow your business</p>
-                <p class="hero-subtitle">Full-stack development • Modern design • Strategic solutions</p>
+            <div class="container hero-content">
+                <div class="hero-badge">Full-Stack Development &amp; Consulting</div>
+                <h1>Built to <span class="text-accent">Grow</span> With You</h1>
+                <p class="tagline">We craft scalable web applications and digital experiences that move your business forward.</p>
                 <div class="cta-buttons">
                     <a href="#portfolio" class="btn btn-primary">View Our Work</a>
-                    <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                    <a href="#contact" class="btn btn-secondary">Start a Conversation</a>
                 </div>
+            </div>
+            <div class="hero-scroll-indicator" aria-hidden="true">
+                <span>Scroll</span>
+                <div class="scroll-line"></div>
             </div>
         </section>
 
         <section id="about">
             <div class="container">
-                <h2>About Us</h2>
-                <div class="about-content">
-                    <p class="lead">Rooted Labs LLC specializes in building scalable web applications that solve real business challenges.</p>
-                    <div class="expertise-grid">
-                        <div class="expertise-item">
-                            <img src="assets/lightning.png" alt="Performance" class="expertise-icon">
-                            <h3>Performance-Driven</h3>
-                            <p>Lightning-fast applications optimized for speed and user experience</p>
+                <div class="section-header">
+                    <h2>What We Do</h2>
+                    <p class="section-intro">We specialize in building scalable web applications that solve real business challenges — with a focus on quality, performance, and long-term maintainability.</p>
+                </div>
+                <div class="expertise-grid">
+                    <div class="expertise-item animate-on-scroll">
+                        <div class="expertise-icon-wrap">
+                            <img src="assets/lightning.png" alt="" class="expertise-icon">
                         </div>
-                        <div class="expertise-item">
-                            <img src="assets/target.png" alt="Strategy" class="expertise-icon">
-                            <h3>Strategic Approach</h3>
-                            <p>Thoughtful solutions aligned with your business objectives</p>
+                        <h3>Performance-Driven</h3>
+                        <p>Lightning-fast applications optimized for speed, scalability, and a seamless user experience.</p>
+                    </div>
+                    <div class="expertise-item animate-on-scroll">
+                        <div class="expertise-icon-wrap">
+                            <img src="assets/target.png" alt="" class="expertise-icon">
                         </div>
-                        <div class="expertise-item">
-                            <img src="assets/wrench.png" alt="Tools" class="expertise-icon">
-                            <h3>Modern Stack</h3>
-                            <p>Cutting-edge technologies for maintainable, future-proof code</p>
+                        <h3>Strategic Approach</h3>
+                        <p>Thoughtful, outcome-focused solutions aligned tightly with your business goals and growth trajectory.</p>
+                    </div>
+                    <div class="expertise-item animate-on-scroll">
+                        <div class="expertise-icon-wrap">
+                            <img src="assets/wrench.png" alt="" class="expertise-icon">
                         </div>
+                        <h3>Modern Stack</h3>
+                        <p>Cutting-edge technologies that produce maintainable, future-proof code built to last.</p>
                     </div>
                 </div>
             </div>
@@ -66,45 +85,63 @@
 
         <section id="portfolio">
             <div class="container">
-                <h2>Featured Work</h2>
-                <p class="section-intro">We build applications that make a difference</p>
+                <div class="section-header">
+                    <h2>Featured Work</h2>
+                    <p class="section-intro">We build applications that make a meaningful difference.</p>
+                </div>
                 <div class="projects-grid">
-                    <div class="project-card featured">
-                        <div class="project-label">Flagship Product</div>
-                        <h3>CulinaryCard.app</h3>
-                        <p class="project-description">A comprehensive platform designed for culinary professionals and food enthusiasts. Built with modern web technologies to deliver a seamless, intuitive user experience.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Web Application</span>
-                            <span class="tech-tag">Full-Stack</span>
-                            <span class="tech-tag">Production</span>
+                    <div class="project-card featured animate-on-scroll">
+                        <div class="project-card-header">
+                            <div class="project-label">Flagship Product</div>
                         </div>
-                        <a href="https://culinarycard.app" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visit Live Site →</a>
+                        <div class="project-card-body">
+                            <h3>CulinaryCard.app</h3>
+                            <p class="project-description">A comprehensive platform designed for culinary professionals and food enthusiasts. Built with modern web technologies to deliver a seamless, intuitive user experience.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Web Application</span>
+                                <span class="tech-tag">Full-Stack</span>
+                                <span class="tech-tag">Production</span>
+                            </div>
+                            <a href="https://culinarycard.app" target="_blank" rel="noopener noreferrer" class="btn btn-dark">Visit Live Site <span aria-hidden="true">→</span></a>
+                        </div>
                     </div>
                 </div>
-                <p class="portfolio-note">More projects in development. <a href="#contact">Contact us</a> to discuss your next project.</p>
+                <p class="portfolio-note">More projects in development. <a href="#contact">Contact us</a> to discuss what we can build together.</p>
             </div>
         </section>
 
         <section id="contact">
             <div class="container">
-                <h2>Let's Build Something Great</h2>
-                <p class="section-intro">Ready to bring your vision to life? Let's discuss how we can help.</p>
-                <div class="contact-content">
-                    <div class="contact-methods">
-                        <div class="contact-card">
-                            <h3>Start a Project</h3>
-                            <p>Have an idea? Let's explore how we can turn it into reality.</p>
+                <div class="section-header">
+                    <h2>Let's Build Something Great</h2>
+                    <p class="section-intro">Ready to bring your vision to life? We'd love to hear about your project.</p>
+                </div>
+                <div class="contact-methods">
+                    <div class="contact-card animate-on-scroll">
+                        <div class="contact-card-icon" aria-hidden="true">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
                         </div>
-                        <div class="contact-card">
-                            <h3>Technical Consulting</h3>
-                            <p>Need guidance on technology decisions or architecture?</p>
-                        </div>
-                        <div class="contact-card">
-                            <h3>Partnership Opportunities</h3>
-                            <p>Interested in collaborating on a project?</p>
-                        </div>
+                        <h3>Start a Project</h3>
+                        <p>Have an idea? Let's explore how we can turn it into a product your users will love.</p>
                     </div>
-                    <p class="contact-cta">Reach out to discuss your needs and timeline.</p>
+                    <div class="contact-card animate-on-scroll">
+                        <div class="contact-card-icon" aria-hidden="true">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                        </div>
+                        <h3>Technical Consulting</h3>
+                        <p>Need guidance on technology decisions, architecture, or scaling strategy?</p>
+                    </div>
+                    <div class="contact-card animate-on-scroll">
+                        <div class="contact-card-icon" aria-hidden="true">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        </div>
+                        <h3>Partnership Opportunities</h3>
+                        <p>Interested in collaborating? Let's explore what we can build together.</p>
+                    </div>
+                </div>
+                <div class="contact-cta-block">
+                    <p>Reach out directly — we respond promptly and love talking shop.</p>
+                    <a href="mailto:" class="btn btn-dark btn-large">Get in Touch</a>
                 </div>
             </div>
         </section>
@@ -113,7 +150,7 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
+                <div class="footer-section footer-brand">
                     <div class="footer-logo">
                         <img src="assets/logo.png" alt="Rooted Labs LLC">
                         <span>Rooted Labs LLC</span>
