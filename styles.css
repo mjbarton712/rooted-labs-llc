@@ -306,25 +306,93 @@ section {
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    isolation: isolate;
     padding: 120px 24px 100px;
     background:
-        linear-gradient(145deg, rgba(48, 28, 16, 0.93) 0%, rgba(174, 96, 56, 0.87) 100%),
-        url('assets/wood_rings.png') center/cover no-repeat;
+        linear-gradient(180deg, rgba(0, 0, 0, 0) 70%, rgba(26, 16, 10, 0.5) 100%),
+        linear-gradient(145deg, #1f130c 0%, #3b2518 55%, #5a3624 100%);
     color: var(--text-light);
     text-align: center;
 }
 
+/* Wood-grain texture and a faint grid, masked to fade out toward the edges */
+#hero::before,
 #hero::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at 65% 35%, rgba(201, 125, 84, 0.22) 0%, transparent 65%);
     pointer-events: none;
+    z-index: -1;
+}
+
+#hero::before {
+    background: url('assets/wood_rings.png') center/cover no-repeat;
+    opacity: 0.12;
+    mix-blend-mode: luminosity;
+}
+
+#hero::after {
+    background-image:
+        linear-gradient(rgba(245, 240, 235, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(245, 240, 235, 0.06) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 20%, transparent 75%);
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 20%, transparent 75%);
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    will-change: transform;
+}
+
+.hero-orb-1 {
+    width: 520px;
+    height: 520px;
+    top: -180px;
+    left: -120px;
+    background: radial-gradient(circle, rgba(214, 145, 109, 0.55), transparent 70%);
+    animation: orbDrift 18s ease-in-out infinite alternate;
+}
+
+.hero-orb-2 {
+    width: 440px;
+    height: 440px;
+    right: -140px;
+    bottom: -200px;
+    background: radial-gradient(circle, rgba(205, 137, 101, 0.4), transparent 70%);
+    animation: orbDrift 22s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes orbDrift {
+    from { transform: translate3d(0, 0, 0) scale(1); }
+    to { transform: translate3d(60px, 40px, 0) scale(1.12); }
 }
 
 .hero-content {
     position: relative;
     z-index: 1;
+}
+
+.hero-content > * {
+    animation: heroRise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.hero-content > :nth-child(2) { animation-delay: 0.1s; }
+.hero-content > :nth-child(3) { animation-delay: 0.2s; }
+.hero-content > :nth-child(4) { animation-delay: 0.3s; }
+
+@keyframes heroRise {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .hero-badge {
@@ -339,20 +407,28 @@ section {
     padding: 0.45rem 1.15rem;
     border-radius: var(--radius-pill);
     margin-bottom: 1.75rem;
+    -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
 }
 
 #hero h1 {
-    font-size: clamp(2.8rem, 6vw, 4.6rem);
+    font-size: clamp(2.8rem, 7vw, 5.25rem);
     font-weight: 800;
-    color: var(--text-light);
     letter-spacing: -0.04em;
-    line-height: 1.08;
+    line-height: 1.05;
     margin-bottom: 1.35rem;
+    background: linear-gradient(180deg, #ffffff 0%, #f1d9c8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
 }
 
-.text-accent {
-    color: var(--accent-light);
+#hero .text-accent {
+    background: linear-gradient(90deg, #f6b890 0%, #D6916D 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .tagline {
@@ -369,6 +445,35 @@ section {
     gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
+}
+
+#hero .btn {
+    padding: 0.9rem 2rem;
+    font-size: 1.02rem;
+}
+
+#hero .btn-primary {
+    background: linear-gradient(135deg, #ffffff, #f6e6da);
+    box-shadow: 0 8px 30px rgba(214, 145, 109, 0.35);
+}
+
+#hero .btn-primary:hover {
+    background: #ffffff;
+    box-shadow: 0 12px 36px rgba(214, 145, 109, 0.5);
+}
+
+#hero .btn-secondary {
+    background: rgba(245, 240, 235, 0.08);
+    border-color: rgba(245, 240, 235, 0.35);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-orb,
+    .hero-content > * {
+        animation: none;
+    }
 }
 
 .hero-scroll-indicator {
@@ -813,7 +918,7 @@ footer {
 
     #hero {
         min-height: 75vh;
-        padding: 100px 24px 90px;
+        padding: 100px 24px 130px;
     }
 
     #hero h1 {
