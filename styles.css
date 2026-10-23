@@ -425,6 +425,9 @@ section {
 }
 
 #hero .text-accent {
+    /* Pad the box so the "w" overhang (from negative letter-spacing) is inside the gradient */
+    padding: 0 0.08em;
+    margin: 0 -0.08em;
     background: linear-gradient(90deg, #f6b890 0%, #D6916D 100%);
     -webkit-background-clip: text;
     background-clip: text;
